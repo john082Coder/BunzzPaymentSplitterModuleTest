@@ -1,14 +1,14 @@
 # WRITE(main)
 
-## connectToOtherContracts
-~~Connect the underlying pair from dex and the dex router~~
-Initial setup to connect the module to ERC20 being vested.
+## addPayee
+To add payee addresses to contract.
 
 - Who can call: ContractOwner
 
 |Name|Type|Description|Example|Default|
 |--- |---|---|---|---|
-|token|address[]|The address of the token that will be vested|[0x690b9a9e9aa1c9db991c7721a92d351db4fac990]|N/A|
+|_account|address|The address of the payee to add|[0xfc4aa4A414C034E8c852A9E2fA967f82F7D52B90]|N/A|
+|_shares|uint256|The number of shares owned by the payee|[200]|N/A|
 
 ## createVestingSchedule
 
@@ -49,4 +49,4 @@ Owner can only revoke a vesting schedule that have been marked as revocable at t
 - transferOwnership
 - renounceOwnership
 
-image.png
+

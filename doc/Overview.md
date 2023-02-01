@@ -17,6 +17,11 @@ The max number of shared accounts is limited up to 10.
 
 In most cases, the contract accumulates tokens itself and then releases them to payees based on each shares.
 
+Token Launch contract is getting fee from the transaction(sell, buy, transfer, ...) , DEFI contract is getting the fee from user's deposit and stake.
+NFT Mint contract has some minting price and the contract is getting tokens from the minting transaction.
+NFT Marketplace contract is getting fee from the tradings(sell, buy, transfer, ...) ...
+
+For above cases, the contracts need to have functions to withdraw the accumulated tokens or release them to payees with shares.
 
 ## Sample dApp
 - github repo URL
