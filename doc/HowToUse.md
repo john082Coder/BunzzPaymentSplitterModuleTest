@@ -26,3 +26,6 @@ As Project Owner,
 - Check the released amount?
   Call `totalERC20Released()` or `totalEthReleased()`
 
+- How to get releasable amount of payee?
+  Call `releasableEth(address account)` or `releasableERC20(IERC20 token, address account)`
+
