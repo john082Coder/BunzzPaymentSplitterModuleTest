@@ -1,47 +1,28 @@
 ## Preparation before deployment
-1. Deploy your ERC20 token if you won't use existing ERC20 token like USDC.
-2. Start selling your tokens in an ICO/public sale/private sale/seed phase round.
+1. Deploy your own ERC20 token which will be used for sharing to payees.
 
 ## Get started(Operation)
 As Project Owner,
 
-1. Deploy Vesting contract.
-2. Call the function `connectToOtherContracts()`(link to Function page) to configure the erc20 token to be vested. 
-The function takes one argument: an array of addresses. 
-The first item of the array will be used.(Why?)
-3. Transfer the necessary amount of tokens to the vesting contract.
-4. To create a vesting schedule for an investor, call the function `createVesintgSchedule()`(link to Function page). 
-<!-- The function has 7 arguments as follows:
-    - `_beneficiary`: the address of the investor.
-    - `_start`: the start datetime as an unix timestamp.
-    - `_cliff`: the pause between the start time and the moment of available withdrawal.
-    - `_duration`: the duration of the vesting schedule.
-    - `_slicePerSeconds`:  how many tokens will be unlocked every second starting with the startTime.
-    - `_revocable`: a boolean that gives the owner the power to revoke the vesting schedule or not. This can only be decided when the vesting schedule is created.
-    - `_amount`: the amount of tokens that will be vested. -->
-5. To revoke the vesting schedule of the specific investor, call the function `revoke()`(link to Function page). 
-This function can only be called by the owner.You can only revoke a vesting schedule that have been marked as revocable at the moment of creation.
-<!-- It is having only one argument and that is of type bytes32 and represents the id of the vesting schedule you want to revoke.  -->
+1. Deploy Payment Splitter contract using bunzz platform or other tools like truffle or hardhat.
+2. Send some ETH or your own ERC20 token to contract for sharing to payees.
+3. Call the function `addPayee()` to add payee address and share points. 
+4. To update share points of current payees set on contract, call the function `updatePayeeShares()`.
+5. To remove payee,  call the function `removePayee()`.
+6. To change maximum payee numbers, call the function `setMaxPayeeCounter()`.
+7. To release ETH to payees based on their shares, call the function `releaseEth()`.
+8. To release ERC20 tokens to payees based on their shares, call the function `releaseERC20()`.
+9. To withdraw ETH or ERC20 tokens of contract, call the function `withdrawEth` or `withdrawERC20`.
 
-As Beneficiary,
-1. Call `release()`(link to Function page) function to retrieve the vested tokens. 
-This function has 2 arguments as follows.
-    - vestingScheduleId: the id of the vesting schedule. <- how to get the ID?
-    - amount: the amount of funds you want to retrieve.
+
 
 ## How-to
 
-- Get the vestingSchedule ID?
-  1. Call `getVestingSchedulesCountByBeneficiary(address beneficiary)`. It returns vestingSchedulesCount which represents how many vestingSchedule the given beneficiary has.
-  2. Call `getVestingScheduleByAddressAndIndex(address holder, uint256 index)`. It returns vestingScheduleId(bytes32).
+- How to get the total shares?
+  Call `totalShares()`. It returns total shares.
+- How to get the list of payees?
+  Call `listOfPayees()`.
 
-- How to check the detail of vestingSchedule?
-  1. Get vestingSchedule ID.
-  2. Call `getVestingSchedule(bytes32 vestingScheduleId)`.
+- Check the released amount?
+  Call `totalERC20Released()` or `totalEthReleased()`
 
-- Check the current releasable amount?
-  1. Get vestingSchedule ID.
-  2. Call `computeReleasableAmount(vestingScheduleId)`
-
-- Get the current block time?
-  - Call `getCurrentTime()`
