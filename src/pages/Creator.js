@@ -50,7 +50,7 @@ const Creator = () => {
                             <Form.Control type="email" placeholder="Enter Payee Address" value={payeeAddress} onChange={(val) => setPayeeAddress(val.target.value)} />
                             <Button className="mx-3 mt-2" variant="dark"  onClick={handleAddPayee} >Add Payee</Button>
                          
-                            <div>Total Shares:{totalShares}</div>
+                            <div>Total Shares:{ totalShares }</div>
                             <div>Total Number of Current Payees:{payeeCount}</div>
                             <div>Max Payee Counter: { payeeMaxCounter }</div>
                         </Form.Group>
