@@ -4,7 +4,7 @@
 ## Get started(Operation)
 As Project Owner,
 
-1. Deploy Payment Splitter contract using bunzz platform or other tools like truffle or hardhat.
+1. Deploy Payment Splitter contract using bunzz platform.
 2. Send some ETH or your own ERC20 token to contract for sharing to payees.
 3. Call the function `addPayee()` to add payee address and share points. 
 4. To update share points of current payees set on contract, call the function `updatePayeeShares()`.
