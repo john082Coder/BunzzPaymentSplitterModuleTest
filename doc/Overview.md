@@ -12,6 +12,12 @@ The max number of shared accounts is limited up to 10.
 - ContractOwner can release tokens to payess based on their shares.
 - ContractOwner can withdraw tokens to any address on the contract.
 
+## How to use
+
+1. Add payee with share point on the contract
+2. Connect with other contracts which accumulates tokens (both ERC20 and native token) itself.
+3. Release tokens to payees based on their shares
+4. Contract owner can update the shares of payees, and disable the payee to prevent further payments(Of course can enable the payee again if needed)
 
 ## Use case
 
